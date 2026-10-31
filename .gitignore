@@ -22,3 +22,12 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+.env
+.env.*
+!.env.example
+tmp/
+
+# 생성된 공유용 파일
+Demo.html
+K-Fit_Local_공유용.html
+K-Fit_Local_팀공유_기획안.txt
