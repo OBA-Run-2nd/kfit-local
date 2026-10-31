@@ -1,0 +1,66 @@
+// Editorial suggestions based on official tourism information. Durations are
+// planning estimates, not bookings or a route joining these different cities.
+const trip = (ko, en, zh) => ({ ko, en, zh })
+const visit = id => `https://english.visitkorea.or.kr/svc/contents/contentsView.do?vcontsId=${id}`
+export const guideMissions = [
+  {
+    id: 'photo', city: 'seoul', area: 'seongsu', category: 'cafes', minutes: '60–90',
+    names: trip('성수 골목에서 찾는 오늘의 취향', 'A slow style walk in Seongsu', '在聖水街頭發現今日喜好'),
+    place: trip('성수동 카페거리', 'Seongsu-dong Cafe Street', '聖水洞咖啡街'),
+    descriptions: trip('공장을 새롭게 꾸민 카페와 편집숍이 모인 거리. 좋아하는 옷을 입고 골목의 색과 분위기를 만나보세요.', 'Explore converted industrial spaces, cafés and select shops at your own pace.', '漫步舊工廠改建的咖啡館與選物店，感受街區的色彩與氣氛。'),
+    steps: trip(['연무장길 골목 둘러보기', '마음에 드는 카페에서 쉬어가기', '오늘의 룩이나 여행 메모 남기기'], ['Explore the Yeonmujang-gil lanes', 'Pause at a café you like', 'Save your look or a travel note'], ['探索練武場街巷弄', '在喜歡的咖啡館休息', '記錄今日穿搭或旅行隨筆']),
+    tip: trip('팝업과 개별 매장의 운영 일정은 방문 전에 확인해보세요.', 'Check individual shop and pop-up schedules before visiting.', '出發前確認個別店家與快閃店的開放時間。'),
+    query: '성수동 카페거리 서울', source: 'https://english.visitkorea.or.kr/svc/whereToGo/locIntrdn/rgnContentsView.do?vcontsId=112801',
+    image: 'https://images.unsplash.com/photo-1517154421773-0529f29ea451?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    id: 'busan-style', city: 'busan', category: 'photos', minutes: '60–90',
+    names: trip('알록달록한 부산의 골목 산책', 'Colourful lanes in Busan', '漫步釜山繽紛巷弄'),
+    place: trip('감천문화마을', 'Gamcheon Culture Village', '甘川文化村'),
+    descriptions: trip('언덕을 따라 이어지는 집과 벽화, 작은 예술 작품을 천천히 구경해보세요.', 'Follow hillside lanes and discover murals and small artworks along the way.', '沿山坡巷弄慢慢走，欣賞壁畫與街角的小型藝術作品。'),
+    steps: trip(['마을 안내도를 보고 산책길 고르기', '벽화와 골목의 풍경 감상하기', '좋아하는 장면을 한 장 기록하기'], ['Choose a walk using the village map', 'Look for murals and hillside views', 'Save one favourite moment'], ['參考村莊地圖挑選散步路線', '欣賞壁畫與山坡景致', '記錄一個喜歡的畫面']),
+    tip: trip('주민이 생활하는 마을이에요. 조용히 걷고 사유지 촬영은 피해주세요.', 'This is a residential village. Walk quietly and respect private spaces.', '這裡是居民生活的村落，請輕聲慢行並尊重私人空間。'),
+    query: '부산 감천문화마을', source: visit(72894),
+    image: 'https://images.unsplash.com/photo-1538485399081-7191377e8241?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    id: 'jeju-style', city: 'jeju', category: 'foodTrip', minutes: '45–60',
+    names: trip('제주 시장에서 만나는 로컬의 맛', 'A taste of local Jeju', '在濟州市場品味在地風味'),
+    place: trip('동문재래시장', 'Dongmun Traditional Market', '東門傳統市場'),
+    descriptions: trip('제주의 먹거리와 일상이 모이는 시장에서 새로운 맛과 여행 기념품을 찾아보세요.', 'Discover local food, everyday market life and souvenirs in Jeju City.', '在濟州市場探索在地美食、日常生活與旅行紀念品。'),
+    steps: trip(['시장 골목과 상점 구경하기', '취향에 맞는 먹거리 고르기', '오늘 발견한 맛을 메모하기'], ['Browse market lanes and stalls', 'Choose something you want to taste', 'Write down a flavour you discovered'], ['逛逛市場巷弄與攤位', '挑選想品嚐的食物', '記下今天發現的味道']),
+    tip: trip('상점마다 운영 시간이 달라요. 음식의 재료와 알레르기는 주문 전에 확인하세요.', 'Opening times vary by stall. Ask about ingredients and allergies before ordering.', '各攤營業時間不同，點餐前請確認食材與過敏原。'),
+    query: '제주 동문재래시장', source: visit(91650),
+    image: 'https://images.unsplash.com/photo-1517154421773-0529f29ea451?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    id: 'palace', city: 'seoul', category: 'cultureTrip', minutes: '90–120',
+    names: trip('궁궐에서 만나는 한국의 아름다움', 'A palace pause in Seoul', '在宮闕感受韓國之美'),
+    place: trip('경복궁', 'Gyeongbokgung Palace', '景福宮'),
+    descriptions: trip('궁궐의 마당과 전통 건축을 둘러보며 한국 여행의 또 다른 장면을 만나보세요.', 'Take time to explore palace courtyards and traditional Korean architecture.', '漫步宮廷庭院與傳統建築，發現韓國旅行的另一種風景。'),
+    steps: trip(['공식 안내에서 관람 일정 확인하기', '궁궐의 건축과 마당 둘러보기', '인상 깊었던 공간을 기록하기'], ['Check the official visiting information', 'Explore the courtyards and architecture', 'Record a space that caught your eye'], ['確認官方參觀資訊', '欣賞庭院與傳統建築', '記錄印象深刻的空間']),
+    tip: trip('입장료·휴궁일·관람 시간은 공식 관광 안내에서 확인해주세요.', 'Check current admission fees, closures and visiting hours in the official guide.', '請先查看官方指南的票價、休宮日與參觀時間。'),
+    query: '서울 경복궁', source: visit(87740),
+    image: 'https://images.unsplash.com/photo-1538485399081-7191377e8241?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    id: 'gyeongju', city: 'gyeongju', category: 'cafes', minutes: '60–90',
+    names: trip('경주, 한옥 사이로 걷는 오후', 'An afternoon among Gyeongju hanok', '漫步慶州韓屋間的午後'),
+    place: trip('황리단길', 'Hwangnidan Street', '皇理團路'),
+    descriptions: trip('옛집을 새롭게 꾸민 카페와 소품 가게를 둘러보며 경주만의 분위기를 느껴보세요.', 'Browse cafés and small shops in renovated houses with a distinct Gyeongju feel.', '逛逛老屋改建的咖啡館與小店，感受慶州獨特氣氛。'),
+    steps: trip(['황리단길의 골목 산책하기', '작은 가게에서 기념품 둘러보기', '한옥 풍경과 오늘의 룩 기록하기'], ['Take a walk along Hwangnidan Street', 'Browse souvenirs in small shops', 'Record your look with a hanok backdrop'], ['漫步皇理團路巷弄', '在小店尋找紀念品', '記錄韓屋風景與今日穿搭']),
+    tip: trip('인근 유적지 방문은 별도 일정으로 계획하고 각 시설의 안내를 확인하세요.', 'Plan nearby heritage visits separately and check each site’s information.', '附近古蹟請另行安排時間，並確認各設施參觀資訊。'),
+    query: '경주 황리단길', source: 'https://english.visitkorea.or.kr/svc/contents/contentsView.do?dataSetId=248&menuSn=929&vcontsId=249853',
+    image: 'https://images.unsplash.com/photo-1517154421773-0529f29ea451?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    id: 'jeonju', city: 'jeonju', category: 'cultureTrip', minutes: '90–120',
+    names: trip('전주에서 천천히 즐기는 한옥 여행', 'Slow moments in Jeonju', '在全州慢慢享受韓屋之旅'),
+    place: trip('전주한옥마을', 'Jeonju Hanok Village', '全州韓屋村'),
+    descriptions: trip('한옥 골목을 걷고 전통 문화 공간을 둘러보며 나만의 한국 여행 기록을 만들어보세요.', 'Walk hanok lanes and explore traditional culture at your own pace.', '漫步韓屋巷弄與傳統文化空間，留下專屬的韓國旅行記錄。'),
+    steps: trip(['한옥마을 골목과 풍경 둘러보기', '관심 있는 전통 문화 체험 찾아보기', '여행 사진이나 한 줄 감상 남기기'], ['Explore hanok lanes and scenery', 'Look for a traditional activity you like', 'Save a photo or a short travel note'], ['欣賞韓屋巷弄與風景', '尋找感興趣的傳統文化體驗', '留下旅行照片或短短感想']),
+    tip: trip('공방·한복 등 개별 체험은 비용과 예약 여부를 따로 확인해주세요.', 'Check prices and booking requirements for individual workshops and rentals.', '個別工坊與韓服體驗的費用及預約方式請另行確認。'),
+    query: '전주한옥마을', source: 'https://english.visitkorea.or.kr/svc/whereToGo/locIntrdn/rgnContentsView.do?vcontsId=110848',
+    image: 'https://images.unsplash.com/photo-1538485399081-7191377e8241?auto=format&fit=crop&w=900&q=80',
+  },
+].map((m, index) => ({ ...m, number: String(index + 1).padStart(2, '0'), coupon: { amount: m.city === 'busan' ? 10000 : 5000, minimum: m.city === 'busan' ? 100000 : 50000, validDays: 30 } }))
